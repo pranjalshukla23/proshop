@@ -8,6 +8,7 @@ import FormContainer from '../components/FormContainer';
 import {
   getProductDetails,
   updateProduct,
+    reset
 } from '../features/products/productsSlice';
 import axios from 'axios'
 const ProductEditScreen = () => {
@@ -52,6 +53,8 @@ const ProductEditScreen = () => {
   useEffect(() => {
 
     if (isProductUpdated) {
+
+      dispatch(reset())
       //redirect
       navigate('/admin/productlist');
     } else {

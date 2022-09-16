@@ -9,8 +9,10 @@ const getProducts = asyncHandler(async (req, res) => {
   //set products per page
   const pageSize = 2;
 
+  console.log("query:",req.query)
+
   //set the page number
-  const page = Number(req.query.pageNumber) || 1;
+  const page = Number(req.query.pageNumber);
 
   //fetch the keyword
   const keyword = req.query.keyword ? {

@@ -37,8 +37,9 @@ export const listProducts = createAsyncThunk('products/getProducts',
     async ({keyword='',pageNumber=1}, thunkAPI) => {
 
       try {
-        console.log(keyword, pageNumber)
+        console.log(pageNumber)
         const {data} = await axios.get(`/api/products?keyword=${keyword}&pageNumber=${pageNumber}`);
+        console.log("fetched data:", data)
         return data;
 
       } catch (error) {
@@ -238,6 +239,8 @@ export const productsSlice = createSlice({
 
       state.isProductUpdated = false
       state.product = {}
+      state.isProductCreated = false
+      state.createdProduct = {}
     }
   },
 

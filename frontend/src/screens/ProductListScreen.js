@@ -28,7 +28,7 @@ const ProductListScreen = () =>{
   //useSelector takes reducer name defined in store as argument
   const {userInfo} = useSelector((state) => state.users)
 
-  const pageNumber = useParams() || 1
+  const {pageNumber} = useParams() || 1
 
   //useDispatch hook is used to call an action or function defined in redux
   const dispatch = useDispatch()
@@ -44,9 +44,6 @@ const ProductListScreen = () =>{
       //redirect
       navigate(`/admin/product/${createdProduct._id}/edit`)
     }else{
-
-      //call redux action
-      dispatch(reset())
 
       //call redux thunk
       dispatch(listProducts({keyword:'',pageNumber}))
